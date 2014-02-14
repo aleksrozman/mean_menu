@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Sample Category",
+        "description": "Sample Descriptions",
+        "items": [
+            {
+                "name": "Sample Item",
+                "description": "Sample Item Description",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": ".99"
+                    }
+                ]
+            }, {
+                "name": "Sample Item 2",
+                "description": "Sample Item 2 Description",
+                "price": [
+                    {
+                        "description": "Large",
+                        "value": "1.99"
+                    }
+                ]
+            }
+        ]
+    }
+]

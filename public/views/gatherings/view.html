@@ -1,0 +1,44 @@
+<section data-ng-controller="GatheringsController" data-ng-init="findOne()">
+    <div class="form-horizontal">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="gathering.name">
+        <label>Created</label>
+        <input type="text" class="form-control" value="{{gathering.created | date:'short'}}" readonly>
+        <label>Deadline</label>
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="gathering.deadline" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button> </span>
+            <div ng-model="gathering.deadline" style="display:inline-block;">
+                <timepicker></timepicker>
+            </div>
+        </p>
+        <label>Restaurants</label>
+        <ul class="list-group">
+            <li ng-repeat="restaurant in gathering.restaurants" class="list-group-item">
+                <button class="btn btn-default" ng-click="removeRestaurant(restaurant)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+                {{restaurant.name}}
+            </li>
+            <li class="list-group-item">
+                <input type="text" ng-model="restaurant" class="form-control" typeahead="rest as rest.name for rest in restaurants | filter:{name:$viewValue} | limitTo:8" placeholder="Add New" typeahead-on-select="addRestaurant(restaurant)">
+            </li>
+        </ul>
+        <label>Users</label>
+        <ul class="list-group">
+            <li ng-repeat="user in gathering.users" class="list-group-item">
+                <button class="btn btn-default" ng-click="removeUser(user)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+                {{user.name}}
+            </li>
+            <li class="list-group-item">
+                <input type="text" ng-model="user" class="form-control" typeahead="user as user.name for user in users | filter:{name:$viewValue} | limitTo:8" placeholder="Add New" typeahead-on-select="addUser(user)">
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-success btn-block" ng-click="update()">Submit</button>
+</section>

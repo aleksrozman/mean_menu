@@ -1,0 +1,129 @@
+<section data-ng-controller="IndexController" data-ng-init="load()" ng-show="{{global.authenticated}}">
+    <div class="row panel-heading" ng-show="gatherings">
+        <div class="input-group pull-left col-sm-4">
+            <input type="text" ng-model="gathering" class="form-control" typeahead="g as g.name for g in gatherings | filter:{name:$viewValue} | limitTo:8" placeholder="Search Or Choose">
+            <div class="input-group-btn" style="width:auto">
+                <button class="btn btn-default dropdown-toggle" ng-click="open=!open">
+                    <i class="glyphicon glyphicon-chevron-down"></i> Gatherings
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="g in gatherings">
+                        <a ng-click="$parent.gathering = g">{{g.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="input-group pull-left col-sm-4" ng-show="gathering && gathering.restaurants">
+            <input type="text" ng-model="restaurant" class="form-control" typeahead-on-select="loadRestaurant(restaurant)" typeahead="rest as rest.name for rest in gathering.restaurants | filter:{name:$viewValue} | limitTo:8" placeholder="Search Or Choose">
+            <div class="input-group-btn" style="width:auto">
+                <button class="btn btn-default dropdown-toggle" ng-click="open=!open">
+                    <i class="glyphicon glyphicon-chevron-down"></i> Restaurant
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="r in gathering.restaurants">
+                        <a ng-click="$parent.restaurant = r; loadRestaurant(r)">{{r.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h1 ng-show="gathering && gathering.restaurants && !gathering.restaurants.length">Gathering has not been prepared</h1>
+        <div class="btn-group pull-left col-sm-4">
+            <a class="btn btn-warning" target="_blank" ng-show="restaurant.url" href="{{restaurant.url}}" >Website</a>
+            <a class="btn btn-warning" target="_blank" ng-show="restaurant.menu" href="{{restaurant.menu}}" >Online Menu</a>
+            <a class="btn btn-warning" ng-show="restaurant.phone" href="tel:{{restaurant.phone}}">{{restaurant.phone | tel}}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default" ng-repeat="category in allitems | orderBy:['type','name']">
+                <div class="panel-heading">
+                    <h2>{{category.name}}
+                    <br>
+                    <small>{{category.description}}</small></h2>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in category.items | orderBy:'name'">
+                        <div class="btn-group pull-right">
+                            <button class="btn" ng-repeat="price in item.price" ng-class="{'disabled btn-default': !item.quantity, 'btn-default': item.quantity, 'active btn-primary': (item.quantity && item.price_index==$index)}" ng-click="item.price_index=$index">
+                                <span ng-show="price.description.length">{{price.description}} </span>{{price.value | currency}}
+                            </button>
+                        </div>
+                        <div class="btn-group" >
+                            <button class="btn btn-default btn-lg" ng-click="item.quantity=1;item.price_index=0" ng-hide="item.quantity">
+                                <i class="glyphicon"></i>
+                            </button>
+                            <button class="btn btn-primary btn-lg" ng-click="item.quantity=0" ng-show="item.quantity">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </button>
+                            <button class="btn btn-lg" ng-click="modify=!modify" ng-show="item.quantity && !item.modification.length"  ng-class="{'btn-default': !item.quantity, 'btn-primary': item.quantity}">
+                                <i class="glyphicon" ng-class="{'glyphicon-chevron-down': modify, 'glyphicon-edit': !modify}"></i> Modify
+                            </button>
+                            <button id="{{item._id}}" class="btn btn-lg" ng-click="info=!info" ng-class="{'btn-link': !item.quantity, 'btn-primary active': item.quantity}">
+                                <i class="glyphicon glyphicon-info-sign" ng-hide="item.quantity || !item.description.length"></i>
+                                <strong ng-show="item.quantity">{{item.quantity}} &times; </strong>
+                                {{item.name}}
+                            </button>
+                        </div>
+                        <div class="btn-group-vertical">
+                            <button class="btn btn-default btn-xs" ng-show="item.quantity" ng-click="item.quantity=item.quantity+1">
+                                <i class="glyphicon glyphicon-plus"></i>
+                            </button>
+                            <button class="btn btn-default btn-xs" ng-show="item.quantity" ng-click="item.quantity=item.quantity-1">
+                                <i class="glyphicon glyphicon-minus"></i>
+                            </button>
+                        </div>
+                        <div class="panel-footer" ng-show="info && item.description.length">
+                            {{item.description}}
+                        </div>
+                        <div class="panel-footer" ng-show="(modify || item.modifications.length) && item.quantity">
+                            <input type="text" class="form-control" data-ng-model="item.modifications" placeholder="Modifications">
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6">
+            <div class="col-md-4 col-xs-6 well affix nav" ng-show="somethingOrdered()">
+                <h2>Your Order</h2>
+                <div data-ng-repeat="category in allitems">
+                    <div data-ng-repeat="item in category.items" ng-show="item.quantity">
+                        <div>
+                            <button class="btn btn-danger btn-xs" ng-click="item.quantity=0">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+                        </div>
+                        <blockquote>
+                            <p>
+                                <a href="#{{item._id}}">{{item.quantity}}&times; {{item.price[item.price_index].description}} {{item.name}}</a>
+                            </p>
+                            <small ng-show="item.modifications.length"><cite>{{item.modifications}}</cite></small>
+                        </blockquote>
+                    </div>
+                </div>
+                <blockquote class="well form-horizontal">
+                    <div class="form-group">
+                        <label for="total" class="col-sm-2 control-label input-lg">Total</label>
+                        <div class="col-sm-10">
+                            <label class="control-label input-lg text-info">{{total() | currency}} + {{total()*.07 | currency}} Tax</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label input-lg">For</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="username" name="username" class="form-control input-lg" autocomplete="off" typeahead="user as user.name for user in users | filter:{name:$viewValue} | limitTo:8" placeholder="Enter Your Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-success btn-block btn-lg" ng-click="submit(username)" ng-class="{'disabled': !username._id}">
+                                <span ng-hide="username._id"><i class="glyphicon glyphicon-exclamation-sign"></i> User Not Found</span><span ng-show="username._id"><i class="glyphicon glyphicon-cutlery"></i> Submit</span>
+                            </button>
+                        </div>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <h1 data-ng-hide="!gatherings || gatherings.length">No gatherings yet</h1>
+</section>

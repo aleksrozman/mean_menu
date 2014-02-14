@@ -1,0 +1,10 @@
+<div class="container" data-ng-controller="HeaderController">
+    <ul class="navbar-nav nav">
+        <li>
+            <a class="navbar-brand" href="/">MEAN Menu</a>
+        </li>
+        <li data-ng-repeat="item in menu" data-ng-show="global.authenticated" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+            <a href="#!/{{item.link}}">{{item.title}}</a>
+        </li>
+    </ul>
+</div>

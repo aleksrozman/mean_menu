@@ -1,0 +1,18 @@
+<section data-ng-controller="OrdersController" data-ng-init="findOne()">
+    <alert type="'success'" ng-hide="close" close="close=1"><h1>Order Placed!</h1></alert>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>{{order.user.name}}</strong> has ordered the following on {{order.placed | date:'short'}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item" ng-repeat="item in order.items" ng-class="{'active': selected}" ng-click="selected=!selected"> <h4 class="list-group-item-heading"> {{item.item.name}} <span class="badge pull-right">{{item.quantity}}</span></h4>
+                    <p class="list-group-item-text text-info" ng-show="item.modifications.length" >
+                        {{item.modifications}}
+                    </p> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

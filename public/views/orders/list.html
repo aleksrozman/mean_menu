@@ -1,0 +1,60 @@
+<section data-ng-controller="OrdersController" data-ng-init="load()">
+    <div class="row panel">
+        <div class="row panel-heading">
+            <div class="input-group pull-left col-sm-4">
+                <input type="text" ng-model="gathering" class="form-control" typeahead="g as g.name for g in gatherings | filter:{name:$viewValue} | limitTo:8" placeholder="Search Or Choose" typeahead-on-select="loadDefaultRestaurant(gathering)" >
+                <div class="input-group-btn" style="width:auto">
+                    <button class="btn btn-default dropdown-toggle" ng-click="open=!open">
+                        <i class="glyphicon glyphicon-chevron-down"></i> Gatherings
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="g in gatherings">
+                            <a ng-click="$parent.gathering = g; loadDefaultRestaurant(g)">{{g.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input-group pull-left col-sm-4" ng-show="gathering">
+                <input type="text" ng-model="restaurant" typeahead-on-select="loadRestaurant(restaurant)" class="form-control" typeahead="rest as rest.name for rest in gathering.restaurants | filter:{name:$viewValue} | limitTo:8" placeholder="Search Or Choose">
+                <div class="input-group-btn" style="width:auto">
+                    <button class="btn btn-default dropdown-toggle" ng-click="open=!open">
+                        <i class="glyphicon glyphicon-chevron-down"></i> Restaurant
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="r in gathering.restaurants">
+                            <a ng-click="$parent.restaurant = r; loadRestaurant(r)">{{r.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-group pull-left col-sm-3">
+                <a class="btn btn-warning" target="_blank" ng-show="restaurant.menu" href="{{restaurant.menu}}" >Online Menu</a>
+                <a class="btn btn-warning" ng-show="restaurant.phone" href="tel:{{restaurant.phone}}">{{restaurant.phone | tel}}</a>
+            </div>
+            <div class="pull-left col-sm-1">
+                <strong>Total</strong>
+                <br>
+                <small>{{total() * 1.07 | currency}}</small>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default" ng-repeat="order in orders">
+            <button class="btn btn-danger pull-right btn-sm" ng-click="remove(order)">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>{{order.user.name}}</strong> on {{order.placed | date:'short'}} [{{order.ip}}]</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a class="list-group-item" ng-repeat="item in order.items" ng-class="{'active': selected}" ng-click="selected=!selected"> <h4 class="list-group-item-heading"> <span class="text-info">{{item.item.price[item.price_index].description}} </span>{{item.item.name}} <span class="badge pull-right" ng-show="item.quantity>1">{{item.quantity}}</span></h4>
+                    <p class="list-group-item-text text-info" ng-show="item.modifications.length" >
+                        {{item.modifications}}
+                    </p> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 data-ng-hide="!orders || orders.length">No orders yet</h1>
+</section>

@@ -1,0 +1,585 @@
+[
+    {
+        "name": "Drinks",
+        "description": "Drinks",
+        "items": [
+            {
+                "name": "Fountain Drink",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "1.99"
+                    }
+                ]
+            }, {
+                "name": "Fresh Brewed Iced Tea",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "1.99"
+                    }
+                ]
+            }, {
+                "name": "Bottled Water",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "1.99"
+                    }
+                ]
+            }, {
+                "name": "Coffee",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "1.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Soups",
+        "description": "Soups",
+        "items": [
+            {
+                "name": "Chicken Dumpling Soup",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "3.99"
+                    }, {
+                        "description": "Large",
+                        "value": "12.99"
+                    }
+                ]
+            }, {
+                "name": "Wild Mushroom Soup",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "3.99"
+                    }, {
+                        "description": "Large",
+                        "value": "12.99"
+                    }
+                ]
+            }, {
+                "name": "Lobster Bisque Soup",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "3.99"
+                    }, {
+                        "description": "Large",
+                        "value": "12.99"
+                    }
+                ]
+            }, {
+                "name": "Roasted Tomato Tortilla Soup",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "3.99"
+                    }, {
+                        "description": "Large",
+                        "value": "12.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Salads",
+        "description": "Salads",
+        "items": [
+            {
+                "name": "Chopped Salad",
+                "description": "Tomato, red onions, turkey bacon, chicken, tortilla, egg and feta cheese.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "4.99"
+                    }, {
+                        "description": "Large",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Caesar Salad",
+                "description": "Tomatoes, croutons and Parmesan cheese.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "4.99"
+                    }, {
+                        "description": "Large",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Greek Salad",
+                "description": "Tomato, red onions, cucumber, olives, feta cheese and Parmesan cheese.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "4.99"
+                    }, {
+                        "description": "Large",
+                        "value": "7.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Brick Oven Calzones",
+        "description": "Brick Oven Calzones",
+        "items": [
+            {
+                "name": "Italian Calzone",
+                "description": "Mozzarella, marinara, onions, pepperoni and mushrooms.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Cheeseburger Calzone",
+                "description": "American, cheddar and ground beef.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Chicken Pesto Calzone",
+                "description": "Mozzarella, chicken and pesto.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Italian Beef Calzone",
+                "description": "Mozzarella, sliced beef and giardiniera.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Buffalo Chicken Calzone",
+                "description": "Mozzarella, cheddar, chicken and Buffalo sauce.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Bruschetta Calzone",
+                "description": "Tomato, onions, basil, mozzarella and pesto.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Sausage and Peppers Calzone",
+                "description": "Mozzarella, peppers, sausage and marinara.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Veggie Lite Calzone",
+                "description": "Low sodium-part skim mozzarella, onions, peppers, mushrooms, tomato, spinach and marinara.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Brick Oven Macaroni",
+        "description": "Brick Oven Macaroni",
+        "items": [
+            {
+                "name": "Traditional American Macaroni",
+                "description": "American and cheddar.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Wild Mushroom Macaroni",
+                "description": "Mushrooms, American and cheddar.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Buffalo Chicken Macaroni",
+                "description": "Chicken, mozzarella, cheddar and Buffalo sauce.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Cheeseburger Macaroni",
+                "description": "Ground beef, cheddar and American.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Shrimp Macaroni",
+                "description": "Cheddar, shrimp, mushroom and tomato.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Mediterranean Macaroni",
+                "description": "White cheddar, goat cheese, spinach and turkey bacon.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "4 Cheese Macaroni",
+                "description": "Cheddar, mozzarella, Swiss and Parmesan.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Lasagna Macaroni",
+                "description": "White cheddar, meat sauce and mozzarella.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Veggie Lite Macaroni",
+                "description": "Reduced fat cheddar, tomato, onions, mushrooms and spinach.",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "9.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Build Your Own",
+        "description": "Build Your Own",
+        "items": [
+            {
+                "name": "Build Your Own Calzone",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "0.95"
+                    }
+                ]
+            }, {
+                "name": "Build Your Own Macaroni",
+                "description": "",
+                "price": [
+                    {
+                        "description": "Small",
+                        "value": "6.99"
+                    }, {
+                        "description": "Large",
+                        "value": "0.95"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Healthy Sandwiches and Wraps",
+        "description": "Healthy Sandwiches and Wraps",
+        "items": [
+            {
+                "name": "Roasted Chicken Avocado",
+                "description": "Tomato, lettuce, cucumber, red onion and balsamic vinaigrette on a wheat baguette. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.59"
+                    }
+                ]
+            }, {
+                "name": "Smoked Turkey Torpedo",
+                "description": "Tomato, organic greens, fresh mozzarella and pesto aioli. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "6.99"
+                    }
+                ]
+            }, {
+                "name": "Sonoma Chicken Salad Sandwich",
+                "description": "Grapes, celery, low-fat mayo, red onion lettuce and tomato on multigrain. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Chicken Caesar Wrap",
+                "description": "Lettuce, Parmesan, Caesar dressing in a wheat tortilla. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "6.99"
+                    }
+                ]
+            }, {
+                "name": "Roast Beef Stacker",
+                "description": "Tomato, red onion, low-fat horseradish sauce, organic greens and white cheddar on a wheat baguette. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Ham and Swiss on Pretzel",
+                "description": "Swiss cheese, low-fat Dijon mayo on soft pretzel bread. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Greek Wrap",
+                "description": "Tomato, red onion, olives, lettuce, feta cheese and Greek vinaigrette in a golden wheat tortilla. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "6.99"
+                    }
+                ]
+            }, {
+                "name": "Mediterranean Veggie",
+                "description": "Roasted zucchini, squash, pepper, tomato, lettuce, feta cheese, on multigrain. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "6.99"
+                    }
+                ]
+            }, {
+                "name": "Blackened Chicken Guacamole Wrap",
+                "description": "Tomato and lettuce in a golden wheat tortilla. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Grilled Chicken Pita",
+                "description": "Tomato, red onion, low-fat cucumber sauce on a wheat pita. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }, {
+                "name": "Cajun Turkey Club",
+                "description": "Tomato, lettuce, turkey bacon, low-fat mayo on multigrain. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "6.99"
+                    }
+                ]
+            }, {
+                "name": "Albacore Tuna Wrap",
+                "description": "Celery, onions, low-fat mayo, lettuce and Swiss in a golden wheat tortilla. Served with chips or fruits.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "7.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Flatbreads",
+        "description": "Flatbreads",
+        "items": [
+            {
+                "name": "Tomato Margherita Flatbread",
+                "description": "Tomato, fresh mozzarella and basil.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Sausage Leek Flatbread",
+                "description": "Fennel sausage, leeks, garlic and cream.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Garlic Goat Cheese Flatbread",
+                "description": "Goat cheese and garlic parsley oil.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "9.99"
+                    }
+                ]
+            }, {
+                "name": "Pepperoni Ricotta Flatbread",
+                "description": "With tomato sauce.",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "9.99"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "name": "Kid's Menu",
+        "description": "Kid's Menu",
+        "items": [
+            {
+                "name": "Kid's Mac and Cheese",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "2.99"
+                    }
+                ]
+            }, {
+                "name": "Kid's Grilled Cheese",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "2.99"
+                    }
+                ]
+            }, {
+                "name": "Kid's Cheese Pizza",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "2.99"
+                    }
+                ]
+            }, {
+                "name": "Kid's Butter Noodles",
+                "description": "",
+                "price": [
+                    {
+                        "description": "",
+                        "value": "2.99"
+                    }
+                ]
+            }
+        ]
+    }
+]

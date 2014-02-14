@@ -1,0 +1,79 @@
+<section data-ng-controller="RestaurantsController" data-ng-init="find()">
+    <div class="row">
+        <div ng-repeat="restaurant in restaurants" ng-hide="newrestaurant">
+            <div class="panel panel-default">
+                <div class="btn-group pull-right">
+                    <a class="btn btn-default" ng-click="update(restaurant)">Update</a>
+                    <a class="btn btn-success" href="#!/restaurants/{{restaurant._id}}">Menu</a>
+                    <a class="btn btn-primary" href="/restaurants/{{restaurant._id}}/port">Port</a>
+                    <a class="btn btn-danger" ng-click="remove(restaurant)">Drop</a>
+                </div>
+                <div class="panel-heading">
+                    {{restaurant.name}}
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input ng-model="restaurant.phone" type="text" ui-mask="(999) 999-9999" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Menu</label>
+                        <div class="col-sm-10">
+                            <input ng-model="restaurant.menu" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Website</label>
+                        <div class="col-sm-10">
+                            <input ng-model="restaurant.url" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-block" ng-click="add()" ng-hide="newrestaurant" >
+            Create
+        </button>
+
+        <form ng-show="newrestaurant" class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input ng-model="newrestaurant.name" type="text" class="form-control" placeholder="Name" id="name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                    <input ng-model="newrestaurant.phone" type="text" ui-mask="(999) 999-9999" class="form-control" placeholder="(xxx) xxx-xxxx" id="phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="menu" class="col-sm-2 control-label">Menu</label>
+                <div class="col-sm-10">
+                    <input ng-model="newrestaurant.menu" type="text" class="form-control" placeholder="http://" id="menu" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="url" class="col-sm-2 control-label">Website</label>
+                <div class="col-sm-10">
+                    <input ng-model="newrestaurant.url" type="text" class="form-control" placeholder="http://" id="url">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" ng-click="create()">
+                        Save
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <h1 data-ng-hide="!restaurants || restaurants.length">No restaurants yet</h1>
+</section>

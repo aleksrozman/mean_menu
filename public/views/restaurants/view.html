@@ -1,0 +1,38 @@
+<section data-ng-controller="RestaurantsController" data-ng-init="findOne()">
+    <div class="row">
+        <div class="panel panel-default" ng-repeat="category in allitems | orderBy:['type','name']">
+            <div class="pull-right">
+                <button class="btn btn-danger" ng-click="removeCategory(category)">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </button>
+            </div>
+            <div class="panel-heading">
+                <h2><a href="#!/categories/{{category._id}}">{{category.name}}</a>
+                <br>
+                <small>{{category.type}}<span ng-show="category.description.length"> - {{category.description}}</span></small></h2>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in category.items | orderBy:'name'">
+                    <div class="pull-left">
+                        <button class="btn btn-danger" ng-click="removeItem(item)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </div>
+                    <button class="pull-right btn" ng-repeat="price in item.price" ng-class="{'btn-default': !selected, 'btn-primary': selected}" ng-click="selected=!selected">
+                        <span ng-show="price.description.length">{{price.description}} </span>{{price.value | currency}}
+                    </button>
+                    <a class="btn btn-link" href="#!/items/{{item._id}}"> {{item.name}} </a>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-default btn-block" ng-click="createItem(category)">
+                        Add Item
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-primary btn-block" ng-click="createCategory()">
+            Add Category
+        </button>
+
+        <h1 data-ng-hide="!allitems || allitems.length">No items yet</h1>
+</section>
